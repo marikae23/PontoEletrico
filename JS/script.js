@@ -2,29 +2,26 @@
 const diaSemana = document.getElementById("data-semana");
 const dataAtual = document.getElementById("data-atual");
 const horaAtual = document.getElementById("data-hora");
+const userLocation = document.getElementById("user-location"); // Novo elemento para localização
 
 // Função para atualizar o conteúdo dos elementos com a data e hora atuais
 function updateContentHour() {
-
-    // Atualiza o texto do elemento diaSemana com o dia da semana atual
     if (diaSemana) {
         diaSemana.textContent = getWeekDay();
     }
-
-    // Atualiza o texto do elemento dataAtual com a data atual
     if (dataAtual) {
         dataAtual.textContent = getCurrentDate();
     }
-
-    // Atualiza o texto do elemento horaAtual com a hora atual
     if (horaAtual) {
         horaAtual.textContent = getCurrentTime();
+    }
+    if (userLocation) {
+        getUserLocation();
     }
 }
 
 // Retorna a hora atual no formato HH:MM:SS, com dois dígitos para horas, minutos e segundos
 function getCurrentTime() {
-
     const date = new Date(); // Cria um novo objeto Date com a data e hora atuais
 
     // Formata as horas, minutos e segundos com dois dígitos
@@ -36,23 +33,23 @@ function getCurrentTime() {
     return hours + ":" + minutes + ":" + seconds;
 }
 
-// Retorna a data atual no formato DD/MM/AAAA, com zeros à esquerda para dias e meses
+// Retorna a data atual formatada de acordo com a localidade do usuário
 function getCurrentDate() {
-
     const date = new Date(); // Cria um novo objeto Date com a data e hora atuais
 
-    // Formata o dia e o mês com dois dígitos
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const year = date.getFullYear(); // Obtém o ano completo
-
-    // Retorna a data no formato DD/MM/AAAA
-    return day + "/" + month + "/" + year;
+    // Formata a data com base na localidade do usuário
+    const formatter = new Intl.DateTimeFormat(undefined, {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
+    
+    // Retorna a data formatada
+    return formatter.format(date);
 }
 
 // Retorna o dia da semana atual como uma string com um número e o nome do dia
 function getWeekDay() {
-    
     // Array com os nomes dos dias da semana e seus respectivos números
     const daysOfWeek = ["0 - Domingo", "1 - Segunda", "2 - Terça", "3 - Quarta", "4 - Quinta", "5 - Sexta", "6 - Sábado"];
     const date = new Date(); // Cria um novo objeto Date com a data e hora atuais
@@ -60,8 +57,30 @@ function getWeekDay() {
     return daysOfWeek[date.getDay()];
 }
 
-// Atualiza o conteúdo dos elementos a cada 1000 milissegundos (1 segundo)
-setInterval(updateContentHour, 1000);
+// Função para obter e exibir a localização do usuário
+function getUserLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                // Obtém a latitude e longitude do usuário
+                const latitude = position.coords.latitude.toFixed(4);
+                const longitude = position.coords.longitude.toFixed(4);
+                // Atualiza o conteúdo do elemento userLocation com a latitude e longitude
+                userLocation.textContent = `Localização: Latitude ${latitude}, Longitude ${longitude}`;
+            },
+            function(error) {
+                // Em caso de erro ao obter a localização
+                userLocation.textContent = "Não foi possível obter a localização.";
+            }
+        );
+    } else {
+        // Geolocalização não suportada
+        userLocation.textContent = "Geolocalização não é suportada pelo seu navegador.";
+    }
+}
 
 // Atualiza imediatamente o conteúdo dos elementos ao carregar a página, sem esperar 1 segundo
 updateContentHour();
+
+// Atualiza o conteúdo a cada segundo
+setInterval(updateContentHour, 1000);
