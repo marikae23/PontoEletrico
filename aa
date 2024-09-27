@@ -1,14 +1,19 @@
-% Fatos de parentesco
-pai(jose, maria).
-pai(jose, joao).
-pai(carlos, jose).
-mae(ana, maria).
-mae(ana, joao).
-mae(maria, pedro).
+    -- Função para calcular o fatorial
+fatorial :: Integer -> Integer
+fatorial 0 = 1
+fatorial n = n * fatorial (n - 1)
 
-% Regra para verificar se X é avô ou avó de Y
-avo(X, Y) :- 
-    pai(X, Z), (pai(Z, Y) ; mae(Z, Y)).
+-- Função para somar os elementos de uma lista
+somaLista :: [Int] -> Int
+somaLista [] = 0 
+somaLista (x:xs) = x + somaLista xs
 
-avo(X, Y) :- 
-    mae(X, Z), (pai(Z, Y) ; mae(Z, Y)).
+-- Ponto de entrada do programa
+main :: IO ()
+main = do
+    -- Testando as funções
+    print (fatorial 0)         
+    -- print (fatorial 5)
+    -- somaLista[]
+    -- somaLista[7]
+    -- somaLista[1, 2, 3, 4]
