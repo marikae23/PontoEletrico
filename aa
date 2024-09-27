@@ -1,4 +1,4 @@
-    -- Função para calcular o fatorial
+-- Função para calcular o fatorial
 fatorial :: Integer -> Integer
 fatorial 0 = 1
 fatorial n = n * fatorial (n - 1)
@@ -12,8 +12,8 @@ somaLista (x:xs) = x + somaLista xs
 main :: IO ()
 main = do
     -- Testando as funções
-    print (fatorial 0)         
-    -- print (fatorial 5)
-    -- somaLista[]
-    -- somaLista[7]
-    -- somaLista[1, 2, 3, 4]
+    print (fatorial 0)              
+    print (fatorial 5)              
+    print (somaLista [])            
+    print (somaLista [7])           
+    print (somaLista [1, 2, 3, 4])  
