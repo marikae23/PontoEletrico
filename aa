@@ -1,4 +1,4 @@
-% Definindo os fatos básicos de parentesco
+% Fatos de parentesco
 pai(jose, maria).
 pai(jose, joao).
 pai(carlos, jose).
@@ -6,15 +6,15 @@ mae(ana, maria).
 mae(ana, joao).
 mae(maria, pedro).
 
-% Regra para verificar se duas pessoas são irmãs
+% Regras para relações familiares
 irmao(X, Y) :- 
     pai(P, X), pai(P, Y), 
     mae(M, X), mae(M, Y), 
     X \= Y.
 
-% Regra para verificar se uma pessoa é avô de outra
+% Corrigindo a regra de avô
 avo(X, Y) :- 
-    pai(X, Z), pai(Z, Y).
+    pai(X, Z), (pai(Z, Y) ; mae(Z, Y)).
 
 avo(X, Y) :- 
-    mae(X, Z), mae(Z, Y).
+    mae(X, Z), (pai(Z, Y) ; mae(Z, Y)).
