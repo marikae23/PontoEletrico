@@ -6,13 +6,7 @@ mae(ana, maria).
 mae(ana, joao).
 mae(maria, pedro).
 
-% Regras para relações familiares
-irmao(X, Y) :- 
-    pai(P, X), pai(P, Y), 
-    mae(M, X), mae(M, Y), 
-    X \= Y.
-
-% Corrigindo a regra de avô
+% Regra para verificar se X é avô ou avó de Y
 avo(X, Y) :- 
     pai(X, Z), (pai(Z, Y) ; mae(Z, Y)).
 
