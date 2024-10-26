@@ -7,35 +7,40 @@
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-    <header>
-        <h1>Sistema de Ponto Eletrônico</h1>
-    </header>
-    <section class="data-hora">
-        <p id="dia-semana"></p>
-        <p id="data-atual"></p>
-        <p id="hora-atual"></p>
-    </section>
-    <section class="controle-ponto">
-        <button id="btn-registrar-ponto">Registrar Ponto</button>
-    </section>
 
-    <dialog id="dialog-ponto">
-        <button id="dialog-fechar">X</button>
-        <h2>Registrar Ponto</h2>
-        <p id="dialog-data"></p>
-        <p id="dialog-hora"></p>
-        <label for="register-type">Tipo de Registro:</label>
-        <select name="register-type" id="register-type">
+    <header class="header">
+        <h1 class="titulo">SISTEMA DE PONTO ELETRÔNICO</h1>
+    </header>
+
+    <main class="container">
+        <section class="data-hora">
+            <p id="dia-semana" class="data-hora__item"></p>
+            <p id="data-atual" class="data-hora__item"></p>
+            <p id="hora-atual" class="data-hora__item"></p>
+        </section>
+    </main>
+
+        <section class="controle-ponto">
+            <button id="btn-registrar-ponto" class="btn">Registrar<br>Ponto</button>
+        </section>
+
+    <dialog id="dialog-ponto" class="dialog">
+        <button id="dialog-fechar" class="dialog__fechar">X</button>
+        <h2 class="dialog__titulo">Registrar Ponto</h2>
+        <p id="dialog-data" class="dialog__item"></p>
+        <p id="dialog-hora" class="dialog__item"></p>
+        <label for="register-type" class="dialog__label">Tipo de Registro:</label>
+        <select name="register-type" id="register-type" class="dialog__select">
             <option value="entrada">Entrada</option>
             <option value="intervalo">Intervalo</option>
             <option value="volta-intervalo">Volta Intervalo</option>
             <option value="saida">Saída</option>
         </select>
-        <button id="btn-dialog-register">Registrar</button>
-        <p id="dialog-ultimo-registro"></p>
+        <button id="btn-dialog-register" class="btn dialog__btn">Registrar</button>
+        <p id="dialog-ultimo-registro" class="dialog__item"></p>
     </dialog>
 
-    <div id="alerta-ponto-registrado" class="hidden">
+    <div id="alerta-ponto-registrado" class="alerta hidden">
         <p>Ponto registrado com sucesso!</p>
     </div>
 

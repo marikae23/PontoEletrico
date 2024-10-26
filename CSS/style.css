@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 body {
     margin: 0;
     padding: 0;
@@ -9,51 +10,81 @@ body {
 }
 
 header {
-    font-family: "Oswald" sans-serif;
-    font-weight: bold;
-    color: #2B2D42;
-    background-color: #f8f9fa;
-    width: 100%;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff; 
+    padding: 20px; 
+    width: 100%; 
+    max-width: 550px; 
+    border-radius: 20px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 65px auto 0; 
 }
 
 header h1 {
-    font-size: 2.5em;
-    margin: 0;
+    font-family: "Oswald", sans-serif; 
+    font-weight: bold;
+    color: #2b2d42; 
+    font-size: 2.3em; 
+    margin: 0; 
+    text-align: center; 
+}
+
+/* Ponto Eletônico */
+.container {
+    background-color: #ffffff; 
+    padding: 30px; 
+    border-radius: 30px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    height: 210px; 
+    width: 550px;
+    margin: 90px auto;
 }
 
 .data-hora {
-    margin: 20px;
-    text-align: center;
-    color: #333;
+    margin: 0; 
+    text-align: center; 
+    color: #333; 
+}
+
+.data-hora #dia-semana {
+    font-size: 2.0em; 
+    font-weight: bold;
+    color: #2b2d42; 
+    margin: 3px 0; 
 }
 
 .data-hora p {
-    font-size: 1.2em;
-    margin: 5px 0;
+    font-family: "Arvo", sans-serif;
+    line-height: 2.4; 
+    font-size: 1.2em; 
+    margin: 5px 0; 
 }
 
+/* Botão */
 .controle-ponto {
-    margin: 20px;
+    text-align: center; 
+    margin: -130px 0 20px; 
 }
 
 #btn-registrar-ponto {
-    padding: 10px 20px;
-    font-size: 1.2em;
-    color: white;
-    background-color: #FF606C;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: "Arvo", sans-serif;
+    font-weight: 600;
+    padding: 15px 59px; 
+    font-size: 1.5em; 
+    color: white; 
+    background-color: #1d3557; 
+    border: none; 
+    border-radius: 15px; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.3s; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    display: block; /* Garante que o botão ocupe toda a largura disponível */
+    margin: 0 auto; /* Centraliza horizontalmente */
+
 }
 
 #btn-registrar-ponto:hover {
-    background-color: #FF4D5D;
-    transform: translateY(-2px);
+    background-color: #1d3557;
+    transform: translateY(-2px); 
 }
 
 dialog {
