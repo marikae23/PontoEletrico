@@ -1,36 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f0f0f0;
+    background-color: #F5EBE0;
 }
 
 header {
-    background-color: #44CEF6;
+    font-family: "Oswald" sans-serif;
+    font-weight: bold;
+    color: #2B2D42;
+    background-color: #f8f9fa;
     width: 100%;
     padding: 20px;
     text-align: center;
-    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
 }
 
 .data-hora {
     margin: 20px;
     text-align: center;
+    color: #333;
+}
+
+.data-hora p {
+    font-size: 1.2em;
+    margin: 5px 0;
 }
 
 .controle-ponto {
     margin: 20px;
 }
 
+#btn-registrar-ponto {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color: white;
+    background-color: #FF606C;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#btn-registrar-ponto:hover {
+    background-color: #FF4D5D;
+    transform: translateY(-2px);
+}
+
 dialog {
     padding: 20px;
     border: none;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    animation: fadeIn 0.5s;
+}
+
+#dialog-ponto {
+    
 }
 
 #dialog-fechar {
@@ -40,7 +76,55 @@ dialog {
     background: transparent;
     border: none;
     font-size: 18px;
+    color: #FF606C;
     cursor: pointer;
+    transition: color 0.3s;
+}
+
+#dialog-fechar:hover {
+    color: #FF4D5D;
+}
+
+h2 {
+    color: #2b2d42;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+select {
+    padding: 10px;
+    width: 100%;
+    border: 2px solid #2b2d42;
+    border-radius: 5px;
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+#btn-dialog-register {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color: white;
+    background-color: #2b2d42;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#btn-dialog-register:hover {
+    background-color: #404470;
+    transform: translateY(-2px);
+}
+
+#dialog-ultimo-registro {
+    margin-top: 15px;
+    color: #e63946;
+    font-weight: bold;
 }
 
 #alerta-ponto-registrado {
@@ -52,6 +136,7 @@ dialog {
     color: white;
     border-radius: 5px;
     transition: opacity 0.5s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .hidden {
@@ -61,4 +146,13 @@ dialog {
 
 .show {
     opacity: 1;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
