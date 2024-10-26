@@ -10,6 +10,20 @@ function updateDateTime() {
 
 setInterval(updateDateTime, 1000); 
 
+const dialog = document.getElementById("dialog-ponto");
+const overlay = document.querySelector(".overlay");
+const btnFechar = document.getElementById("dialog-fechar");
+
+function abrirDialogo() {
+    dialog.showModal(); 
+    overlay.classList.add("visible"); 
+}
+
+btnFechar.addEventListener("click", function() {
+    dialog.close(); 
+    overlay.classList.remove("visible"); 
+});
+
 const btnRegistrarPonto = document.getElementById("btn-registrar-ponto");
 btnRegistrarPonto.addEventListener("click", () => {
     const dialogPonto = document.getElementById("dialog-ponto");
@@ -28,6 +42,12 @@ btnRegistrarPonto.addEventListener("click", () => {
     }
 
     dialogPonto.showModal();
+});
+
+const btnRelatorio = document.getElementById('btn-relatorio');
+
+btnRelatorio.addEventListener('click', function() {
+    window.location.href = 'HTML/relatorio.html';
 });
 
 document.getElementById("dialog-fechar").addEventListener("click", () => {

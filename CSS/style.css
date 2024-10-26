@@ -63,12 +63,16 @@ header h1 {
 .controle-ponto {
     text-align: center; 
     margin: -130px 0 20px; 
+    display: flex;
+    justify-content: center; 
+    gap: 25px;
 }
 
-#btn-registrar-ponto {
+#btn-registrar-ponto, 
+#btn-relatorio {
     font-family: "Arvo", sans-serif;
     font-weight: 600;
-    padding: 15px 59px; 
+    padding: 15px 53px; 
     font-size: 1.5em; 
     color: white; 
     background-color: #1d3557; 
@@ -76,28 +80,40 @@ header h1 {
     border-radius: 15px; 
     cursor: pointer; 
     transition: background-color 0.3s, transform 0.3s; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    display: block; /* Garante que o botão ocupe toda a largura disponível */
-    margin: 0 auto; /* Centraliza horizontalmente */
-
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
-#btn-registrar-ponto:hover {
+#btn-registrar-ponto:hover, 
+#btn-relatorio:hover {
     background-color: #1d3557;
     transform: translateY(-2px); 
 }
 
-dialog {
-    padding: 20px;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    background-color: #ffffff;
-    animation: fadeIn 0.5s;
+/* Caixa de Ponto */
+.overlay {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 4, 10); 
+    z-index: 100; 
+    display: none; 
 }
 
-#dialog-ponto {
-    
+.overlay.visible {
+    display: block; 
+}
+
+.dialog {
+    padding: 20px;
+    border: white;
+    border-radius: 15px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+    background-color: white;
+    animation: fadeIn 0.5s;
+    z-index: 200; 
+    position: relative; 
 }
 
 #dialog-fechar {
@@ -107,7 +123,7 @@ dialog {
     background: transparent;
     border: none;
     font-size: 18px;
-    color: #FF606C;
+    color: #2b2d42;
     cursor: pointer;
     transition: color 0.3s;
 }
@@ -116,32 +132,56 @@ dialog {
     color: #FF4D5D;
 }
 
-h2 {
-    color: #2b2d42;
+.dialog__titulo {
+    font-family: "Oswald", sans-serif;
+    font-weight: 800;
+    font-size: 1.8em;
+    color: #2b2d42; 
+    text-align: center; 
 }
 
-label {
+.dialog__item {
+    font-family: "Arvo", sans-serif;
+    line-height: 0.5;
+    font-size: 1.2em;
+    color: #2b2d42; 
+}
+
+
+.dialog__label {
     display: block;
     margin: 10px 0 5px;
+    font-size: 1.2em;
     font-weight: bold;
+    color: #ffffff; 
 }
 
-select {
+.dialog__select {
     padding: 10px;
-    width: 100%;
-    border: 2px solid #2b2d42;
+    width: 100%; 
     border-radius: 5px;
     font-size: 1em;
-    margin-bottom: 20px;
+    margin-top: -30px;
+    margin-bottom: 10px;
+    background-color: #2b2d42; 
+    color: #ffffff; 
+}
+
+.dialog {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
 }
 
 #btn-dialog-register {
-    padding: 10px 20px;
+    font-family: "Arvo", sans-serif;
+    padding: 10px 27px;
     font-size: 1.2em;
     color: white;
     background-color: #2b2d42;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -153,6 +193,7 @@ select {
 }
 
 #dialog-ultimo-registro {
+    font-size: 0.8em;
     margin-top: 15px;
     color: #e63946;
     font-weight: bold;
