@@ -3,9 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatório de pontos</title>
+    <title>Relatório de Pontos</title>
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-    
+    <header>
+        <h1>Relatório de Pontos</h1>
+    </header>
+    <div id="filtros">
+        <button id="filtro-semana">Última Semana</button>
+        <button id="filtro-mes">Último Mês</button>
+    </div>
+    <table id="tabela-relatorio">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Hora</th>
+                <th>Tipo</th>
+                <th>Localização</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Registros vao ser inseridos dinamicamente -->
+        </tbody>
+    </table>
+    <script src="JS/relatorio.js"></script>
 </body>
 </html>

@@ -4,19 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Ponto Eletrônico</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-    <div class="data-hora">
+    <header>
+        <h1>Sistema de Ponto Eletrônico</h1>
+    </header>
+    <section class="data-hora">
         <p id="dia-semana"></p>
         <p id="data-atual"></p>
         <p id="hora-atual"></p>
-    </div>
-    <button id="btn-registrar-ponto">Registrar ponto</button>
+    </section>
+    <section class="controle-ponto">
+        <button id="btn-registrar-ponto">Registrar Ponto</button>
+    </section>
 
     <dialog id="dialog-ponto">
+        <button id="dialog-fechar">X</button>
+        <h2>Registrar Ponto</h2>
         <p id="dialog-data"></p>
         <p id="dialog-hora"></p>
+        <label for="register-type">Tipo de Registro:</label>
         <select name="register-type" id="register-type">
             <option value="entrada">Entrada</option>
             <option value="intervalo">Intervalo</option>
@@ -25,14 +33,12 @@
         </select>
         <button id="btn-dialog-register">Registrar</button>
         <p id="dialog-ultimo-registro"></p>
-        <button id="dialog-fechar">X</button>
     </dialog>
 
     <div id="alerta-ponto-registrado" class="hidden">
         <p>Ponto registrado com sucesso!</p>
     </div>
 
-
-    <script src="js/index.js"></script>
+    <script src="JS/index.js"></script>
 </body>
 </html>
