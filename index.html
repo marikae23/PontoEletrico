@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Ponto Eletrônico</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sistema de Ponto Eletrônico</h1>
+        <div class="clock">
+            <span id="currentDateTime"></span>
+        </div>
+        <div class="buttons">
+            <button onclick="registrarPonto('entradaExpediente')">Entrada Expediente</button>
+            <button onclick="registrarPonto('saidaExpediente')">Saída Expediente</button>
+            <button onclick="registrarPonto('entradaIntervalo')">Entrada Intervalo</button>
+            <button onclick="registrarPonto('saidaIntervalo')">Saída Intervalo</button>
+        </div>
+        <div class="manual-entry">
+            <h2>Registro Manual</h2>
+            <label for="manualDate">Data: </label>
+            <input type="date" id="manualDate">
+            <label for="manualTime">Hora: </label>
+            <input type="time" id="manualTime">
+            <label for="observation">Observação: </label>
+            <input type="text" id="observation" placeholder="Observação opcional">
+            <button onclick="registrarPontoManual()">Registrar Manualmente</button>
+        </div>
+        <div class="absence">
+            <h2>Justificativa de Ausência</h2>
+            <label for="absenceReason">Motivo: </label>
+            <input type="text" id="absenceReason" placeholder="Motivo da ausência">
+            <label for="absenceFile">Arquivo: </label>
+            <input type="file" id="absenceFile">
+            <button onclick="registrarAusencia()">Registrar Ausência</button>
+        </div>
+        <div class="report-link">
+            <a href="relatorio.html">Ver Relatório de Pontos</a>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+</html>

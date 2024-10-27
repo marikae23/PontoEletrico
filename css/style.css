@@ -1,0 +1,125 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.container:hover {
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+.clock {
+    text-align: center;
+    font-size: 2rem;
+    margin: 20px 0;
+    color: #555;
+}
+
+.buttons, .manual-entry, .absence {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+button {
+    padding: 12px 20px;
+    background-color: #bc4749;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #FF606C;
+    transform: scale(1.05);
+}
+
+input[type="date"], input[type="time"], input[type="text"], input[type="file"] {
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input[type="date"], input[type="time"]:focus, input[type="text"]:focus, input[type="file"]:focus {
+    border-color: #44CEF6;
+}
+
+.report-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.report-link a {
+    text-decoration: none;
+    color: #44CEF6;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.report-link a:hover {
+    color: #FF606C;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .buttons, .manual-entry, .absence {
+        width: 100%;
+        padding: 10px;
+    }
+
+    button {
+        width: 90%;
+        max-width: 250px;
+    }
+
+    input[type="date"], input[type="time"], input[type="text"], input[type="file"] {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+
+    .clock {
+        font-size: 1.3rem;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+}

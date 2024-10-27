@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Pontos</title>
+    <link rel="stylesheet" href="css/style_relatorio.css">
+
+    ">
+</head>
+<body>
+    <div class="container">
+        <h1>Relatório de Pontos</h1>
+        <div id="reportFilters">
+            <label for="filter">Filtrar por período: </label>
+            <select id="filter" onchange="filtrarPontos()">
+                <option value="all">Todos</option>
+                <option value="lastWeek">Última Semana</option>
+                <option value="lastMonth">Último Mês</option>
+            </select>
+        </div>
+        <div id="reportContent">
+            <!-- Conteúdo do relatório será inserido aqui -->
+        </div>
+        <a href="index.html" class="report-link">Voltar</a>
+    </div>
+    
+    <script src="js/relatorio.js"></script>
+</body>
+</html>

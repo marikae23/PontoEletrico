@@ -1,0 +1,127 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.container:hover {
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+#reportFilters {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#reportFilters label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#reportFilters select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#reportContent {
+    margin-top: 20px;
+}
+
+.date-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.point-entry {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.manual-entry {
+    border-left: 5px solid #44CEF6;
+}
+
+.observation-entry {
+    border-left: 5px solid #FF606C;
+}
+
+button {
+    padding: 8px 12px;
+    background-color: #44CEF6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #FF606C;
+}
+
+.report-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.report-link a {
+    text-decoration: none;
+    color: #44CEF6;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.report-link a:hover {
+    color: #FF606C;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    #reportFilters {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #reportFilters label, #reportFilters select {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+}
