@@ -45,7 +45,7 @@ btnFechar.addEventListener("click", function() {
 
 const btnRelatorio = document.getElementById('btn-relatorio');
 btnRelatorio.addEventListener('click', function() {
-    window.location.href = 'HTML/relatorio.html';
+    window.location.href = '../Relatorio/relatorio.html';
 });
 
 const btnDialogRegister = document.getElementById("btn-dialog-register");

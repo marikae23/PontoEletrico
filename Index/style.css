@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-body {
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,12 +12,13 @@ body {
 }
 
 header {
+    z-index: 1;
     background-color: #ffffff; 
     padding: 20px; 
     width: 100%; 
     max-width: 550px; 
     border-radius: 20px; 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0px 6px rgba(0, 0, 0, 0.3);
     margin: 65px auto 0; 
 }
 
@@ -223,4 +226,44 @@ header h1 {
     to {
         opacity: 1;
     }
+}
+
+.eclipse1 {
+    position: absolute;
+    border-radius: 50%;
+    width: 410px;
+    height: 410px;
+    left: 240px;
+    top: 552px;
+    background: #E63946;
+}
+
+.eclipse2 {
+    position: absolute;
+    border-radius: 50%;
+    width: 610px;
+    height: 610px;
+    left: -180px;
+    top: 262px;
+    background: #E63946;
+} 
+
+.eclipse3 {
+    position: absolute;
+    border-radius: 50%;
+    width: 410px;
+    height: 410px;
+    right: 240px;
+    bottom: 622px;
+    background: #1D3557;
+}
+
+.eclipse4 {
+    position: absolute;
+    border-radius: 50%;
+    width: 610px;
+    height: 610px;
+    right: -180px;
+    bottom: 362px;
+    background: #1D3557;
 }
