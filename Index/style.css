@@ -64,6 +64,7 @@ header h1 {
 
 /* Botão */
 .controle-ponto {
+    z-index: 1;
     text-align: center; 
     margin: -120px 0 20px; 
     display: flex;
@@ -251,7 +252,7 @@ header h1 {
     border-radius: 50%;
     width: 410px;
     height: 410px;
-    left: 240px;
+    left: 280px;
     top: 552px;
     background: #E63946;
 }
@@ -261,7 +262,7 @@ header h1 {
     border-radius: 50%;
     width: 610px;
     height: 610px;
-    left: -180px;
+    left: -120px;
     top: 262px;
     background: #E63946;
 } 
