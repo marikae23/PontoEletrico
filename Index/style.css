@@ -73,7 +73,7 @@ header h1 {
 
 #btn-registrar-ponto, 
 #btn-relatorio, 
-#btn-justificativa{
+#btn-ausencia{
     font-family: "Arvo", sans-serif;
     font-weight: 600;
     padding: 15px 33px; 
@@ -89,25 +89,28 @@ header h1 {
 
 #btn-registrar-ponto:hover, 
 #btn-relatorio:hover,
-#btn-justificativa:hover {
+#btn-ausencia:hover {
     background-color: #1d3557;
     transform: translateY(-2px); 
 }
 
 /* Caixa de Ponto */
 .overlay {
-    position: fixed; 
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
-    z-index: 100; 
-    display: none; 
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
+
 .overlay.visible {
-    display: block; 
+    display: flex; 
 }
 
 .dialog {
@@ -204,18 +207,33 @@ header h1 {
 }
 
 #alerta-ponto-registrado {
+    display: none; 
     position: fixed;
-    bottom: 10px;
-    right: 10px;
-    padding: 10px;
-    background-color: green;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: green; 
     color: white;
+    padding: 15px;
     border-radius: 5px;
+    z-index: 1001; 
     transition: opacity 0.5s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#alerta-ponto-registrado.hidden {
+    display: none;
+}
+
+#alerta-ponto-registrado.show {
+    display: block;
+    opacity: 1;
 }
 
 .hidden {
+    display: none;
+}
+
+.hidden2 {
     display: none;
 }
 

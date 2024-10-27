@@ -11,14 +11,24 @@ function updateDateTime() {
 setInterval(updateDateTime, 1000);
 
 const dialog = document.getElementById("dialog-ponto");
+const dialogAusencia = document.getElementById("dialog-ausencia");
 const overlay = document.querySelector(".overlay");
 const btnFechar = document.getElementById("dialog-fechar");
+const btnFecharAusencia = document.getElementById("dialog-ausencia-fechar");
 
-function abrirDialogo() {
+function abrirDialogoPonto() {
+    fecharTodosOsDialogos(); 
     dialog.showModal();
     overlay.classList.add("visible");
 }
 
+function abrirDialogoAusencia() {
+    fecharTodosOsDialogos(); 
+    dialogAusencia.showModal();
+    overlay.classList.add("visible");
+}
+
+// Registrando ponto
 const btnRegistrarPonto = document.getElementById("btn-registrar-ponto");
 btnRegistrarPonto.addEventListener("click", () => {
     const dialogData = document.getElementById("dialog-data");
@@ -35,7 +45,7 @@ btnRegistrarPonto.addEventListener("click", () => {
         dialogUltimoRegistro.textContent = "Nenhum registro encontrado.";
     }
 
-    abrirDialogo(); 
+    abrirDialogoPonto(); 
 });
 
 btnFechar.addEventListener("click", function() {
@@ -66,6 +76,33 @@ btnDialogRegister.addEventListener("click", async () => {
 
     showSuccessAlert();
     dialog.close(); 
+});
+
+// Justificativa de ausência
+// Verificar o porque do botão ausência não está funcionando direito
+const btnAusencia = document.getElementById('btn-ausencia');
+btnAusencia.addEventListener('click', function() {
+    abrirDialogoAusencia(); 
+});
+
+btnFecharAusencia.addEventListener('click', function() {
+    dialogAusencia.close();
+    overlay.classList.remove("visible");
+});
+
+const btnDialogAusencia = document.getElementById("btn-dialog-ausencia");
+btnDialogAusencia.addEventListener("click", () => {
+    const ausencia = document.getElementById("ausencia").value;
+    const arquivo = document.getElementById("upload-arquivo").files[0]; 
+
+    if (!ausencia) {
+        alert("Por favor, descreva sua ausência.");
+        return;
+    }
+
+    alert("Ausência registrada com sucesso!"); 
+    dialogAusencia.close(); 
+    overlay.classList.remove("visible");
 });
 
 function getCurrentTime() {
@@ -117,4 +154,10 @@ function getUserLocation() {
             error => reject("Erro ao obter localização: " + error.message)
         );
     });
+}
+
+function fecharTodosOsDialogos() {
+    dialog.close();
+    dialogAusencia.close();
+    overlay.classList.remove("visible");
 }

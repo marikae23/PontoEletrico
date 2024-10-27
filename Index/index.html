@@ -23,10 +23,10 @@
     <section class="controle-ponto">
         <button id="btn-registrar-ponto" type="button" aria-label="Registrar ponto">Registrar</button>
         <button id="btn-relatorio" class="btn" aria-label="Ver histórico">Histórico</button>
-        <button id="btn-justificativa" class="btn" aria-label="Registrar ausência">Ausência</button>
+        <button id="btn-ausencia" class="btn" aria-label="Registrar ausência">Ausência</button>
     </section>
     
-    <div class="overlay hidden">
+    <div class="overlay hidden" id="overlay-ponto">
         <dialog id="dialog-ponto" class="dialog">
             <button id="dialog-fechar" class="dialog__fechar" aria-label="Fechar diálogo">X</button>
             <h2 class="dialog__titulo">Registrar Ponto</h2>
@@ -49,17 +49,19 @@
             <button id="btn-dialog-register" class="btn dialog__btn">Registrar</button>
             <p id="dialog-ultimo-registro" class="dialog__item"></p>
         </dialog>
+    </div>
 
-        <dialog id="dialog-justificativa" class="dialog">
-            <button id="dialog-justificativa-fechar" class="dialog__fechar" aria-label="Fechar justificativa">X</button>
+    <div class="overlay hidden" id="overlay-ausencia">
+        <dialog id="dialog-ausencia" class="dialog">
+            <button id="dialog-ausencia-fechar" class="dialog__fechar" aria-label="Fechar ausência">X</button>
             <h2 class="dialog__titulo">Registrar Ausência</h2>
-            <label for="justificativa" class="dialog__label">Justificativa:</label>
-            <textarea id="justificativa" class="dialog__input" placeholder="Descreva sua ausência"></textarea>
+            <label for="ausencia" class="dialog__label">Ausência:</label>
+            <textarea id="ausencia" class="dialog__input" placeholder="Descreva sua ausência"></textarea>
             <label for="upload-arquivo" class="dialog__label">Upload de Arquivo:</label>
             <input type="file" id="upload-arquivo" class="dialog__input" />
-            <button id="btn-dialog-justificativa" class="btn dialog__btn">Registrar Justificativa</button>
+            <button id="btn-dialog-ausencia" class="btn dialog__btn">Registrar Ausência</button>
         </dialog>
-    </div>
+    </div>    
 
     <div id="alerta-ponto-registrado" class="alerta hidden">
         <p>Ponto registrado com sucesso!</p>

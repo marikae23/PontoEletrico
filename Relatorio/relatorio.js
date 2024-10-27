@@ -28,6 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    const btnRelatorio = document.getElementById('btn-voltar');
+        btnRelatorio.addEventListener('click', function() {
+            window.location.href = '../Index/index.html';
+        });
+
     filtroSemana.addEventListener("click", () => {
         const registrosFiltrados = registros.filter((registro) => {
             const dataRegistro = new Date(registro.date.split("/").reverse().join("-"));
