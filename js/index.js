@@ -87,3 +87,115 @@ function salvarPonto(ponto) { //funcao de salvar ponto
     localStorage.setItem("pontos", JSON.stringify(pontos));//manda essa lista como JSON para o localstorage
     alert("Ponto registrado com sucesso!");//alerta que o ponto foi salvo
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    setInterval(atualizarDataHora, 1000);
+    atualizarDataHora();
+});
+
+function atualizarDataHora() {
+    const elementoDataHora = document.getElementById("currentDateTime");
+    const agora = new Date();
+    elementoDataHora.innerText = agora.toLocaleString("pt-BR");
+}
+
+function registrarPonto(tipo) {
+    solicitarLocalizacao((localizacao) => {
+        const agora = new Date();
+        const ponto = {
+            data: agora.toLocaleDateString("pt-BR"),
+            hora: agora.toLocaleTimeString("pt-BR"),
+            tipo: tipo,
+            observacao: "",
+            manual: false,
+            localizacao: localizacao // Armazena a localização
+        };
+        salvarPonto(ponto);
+    });
+}
+
+function registrarPontoManual() {
+    const dataManual = document.getElementById("manualDate").value;
+    const horaManual = document.getElementById("manualTime").value;
+    const observacao = document.getElementById("observation").value;
+
+    if (!dataManual || !horaManual) {
+        alert("Preencha a data e hora.");
+        return;
+    }
+
+    const dataHora = new Date(`${dataManual}T${horaManual}`);
+    const agora = new Date();
+
+    if (dataHora > agora) {
+        alert("Não é possível registrar uma data futura.");
+        return;
+    }
+
+    solicitarLocalizacao((localizacao) => {
+        const ponto = {
+            data: dataHora.toLocaleDateString("pt-BR"),
+            hora: dataHora.toLocaleTimeString("pt-BR"),
+            tipo: "manual",
+            observacao: observacao,
+            manual: true,
+            localizacao: localizacao // Armazena a localização
+        };
+        salvarPonto(ponto);
+    });
+}
+
+function registrarAusencia() {
+    const motivo = document.getElementById("absenceReason").value;
+    const arquivo = document.getElementById("absenceFile").files[0];
+
+    if (!motivo) {
+        alert("Preencha o motivo da ausência.");
+        return;
+    }
+
+    solicitarLocalizacao((localizacao) => {
+        const ponto = {
+            data: new Date().toLocaleDateString("pt-BR"),
+            hora: "Ausente",
+            tipo: "ausencia",
+            motivo: motivo,
+            arquivo: arquivo ? arquivo.name : "",
+            manual: true,
+            localizacao: localizacao // Armazena a localização
+        };
+        salvarPonto(ponto);
+    });
+}
+
+function solicitarLocalizacao(callback) {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const localizacao = `Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`;
+                callback(localizacao);
+            },
+            () => {
+                alert("Não foi possível obter a localização.");
+                callback("Não disponível");
+            }
+        );
+    } else {
+        alert("Geolocalização não é suportada pelo navegador.");
+        callback("Não disponível");
+    }
+}
+
+function salvarPonto(ponto) {
+    let pontos = JSON.parse(localStorage.getItem("pontos")) || [];
+
+    const registroExistente = pontos.find(p => p.data === ponto.data && p.tipo === ponto.tipo && !p.manual);
+    if (registroExistente) {
+        alert("Já existe um registro de " + ponto.tipo + " para hoje.");
+        return;
+    }
+
+    pontos.push(ponto);
+    localStorage.setItem("pontos", JSON.stringify(pontos));
+    alert("Ponto registrado com sucesso!");
+}

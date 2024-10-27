@@ -126,3 +126,37 @@ function filtrarPontos() { //funcao que aplica os filtros de ponto
         reportContent.appendChild(dateSection);
     }
 }
+
+function carregarRelatorio() {
+    const pontos = JSON.parse(localStorage.getItem("pontos")) || [];
+    const reportContent = document.getElementById("reportContent");
+    reportContent.innerHTML = "";
+
+    const pontosAgrupados = agruparPontosPorData(pontos);
+
+    for (let data in pontosAgrupados) {
+        const dateSection = document.createElement("div");
+        dateSection.classList.add("date-section");
+        dateSection.innerHTML = `<h2>${data}</h2>`;
+
+        pontosAgrupados[data].forEach((ponto, index) => {
+            const pontoElement = document.createElement("div");
+            pontoElement.classList.add("point-entry");
+
+            if (ponto.manual) {
+                pontoElement.classList.add("manual-entry");
+            }
+
+            pontoElement.innerHTML = `
+                <p>Hora: ${ponto.hora}, Tipo: ${ponto.tipo} ${ponto.observacao ? "(Observação: " + ponto.observacao + ")" : ""}${ponto.arquivo ? "(arquivo: " + ponto.arquivo + ")" : ""}</p>
+                <p>Localização: ${ponto.localizacao}</p> <!-- Exibindo a localização -->
+                <button onclick="editarPonto('${data}', ${index})">Editar</button>
+                <button onclick="excluirPonto()">Excluir</button>
+            `;
+
+            dateSection.appendChild(pontoElement);
+        });
+
+        reportContent.appendChild(dateSection);
+    }
+}
