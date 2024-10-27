@@ -69,7 +69,7 @@ input[type="date"], input[type="time"], input[type="text"], input[type="file"] {
 }
 
 input[type="date"], input[type="time"]:focus, input[type="text"]:focus, input[type="file"]:focus {
-    border-color: #44CEF6;
+    border-color: #bc4749;
 }
 
 .report-link {
@@ -79,7 +79,7 @@ input[type="date"], input[type="time"]:focus, input[type="text"]:focus, input[ty
 
 .report-link a {
     text-decoration: none;
-    color: #44CEF6;
+    color: #bc4749;
     font-weight: bold;
     transition: color 0.3s ease;
 }
