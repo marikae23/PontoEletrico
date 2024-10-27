@@ -20,28 +20,46 @@
         </section>
     </main>
 
-        <section class="controle-ponto">
-            <button id="btn-registrar-ponto" class="btn">Registrar<br>Ponto</button>
-            <button id="btn-relatorio" class="btn">Relatório</button>
-        </section>
+    <section class="controle-ponto">
+        <button id="btn-registrar-ponto" type="button" aria-label="Registrar ponto">Registrar</button>
+        <button id="btn-relatorio" class="btn" aria-label="Ver histórico">Histórico</button>
+        <button id="btn-justificativa" class="btn" aria-label="Registrar ausência">Ausência</button>
+    </section>
+    
+    <div class="overlay hidden">
+        <dialog id="dialog-ponto" class="dialog">
+            <button id="dialog-fechar" class="dialog__fechar" aria-label="Fechar diálogo">X</button>
+            <h2 class="dialog__titulo">Registrar Ponto</h2>
+            <p id="dialog-data" class="dialog__item"></p>
+            <p id="dialog-hora" class="dialog__item"></p>
+            
+            <label for="data-registro" class="dialog__label">Data do Registro:</label>
+            <input type="date" id="data-registro" class="dialog__input" max="" />
+            
+            <label for="register-type" class="dialog__label">Tipo de Registro:</label>
+            <select name="register-type" id="register-type" class="dialog__select">
+                <option value="entrada">Entrada</option>
+                <option value="intervalo">Intervalo</option>
+                <option value="volta-intervalo">Volta Intervalo</option>
+                <option value="saida">Saída</option>
+            </select>
 
-    <div class="overlay hidden"></div>
+            <label for="observacao" class="dialog__label">Observação:</label>
+            <input type="text" id="observacao" class="dialog__input" placeholder="Adicione uma observação" />
+            <button id="btn-dialog-register" class="btn dialog__btn">Registrar</button>
+            <p id="dialog-ultimo-registro" class="dialog__item"></p>
+        </dialog>
 
-    <dialog id="dialog-ponto" class="dialog">
-        <button id="dialog-fechar" class="dialog__fechar">X</button>
-        <h2 class="dialog__titulo">Registrar Ponto</h2>
-        <p id="dialog-data" class="dialog__item"></p>
-        <p id="dialog-hora" class="dialog__item"></p>
-        <label for="register-type" class="dialog__label">Tipo de Registro:</label>
-        <select name="register-type" id="register-type" class="dialog__select">
-            <option value="entrada">Entrada</option>
-            <option value="intervalo">Intervalo</option>
-            <option value="volta-intervalo">Volta Intervalo</option>
-            <option value="saida">Saída</option>
-        </select>
-        <button id="btn-dialog-register" class="btn dialog__btn">Registrar</button>
-        <p id="dialog-ultimo-registro" class="dialog__item"></p>
-    </dialog>
+        <dialog id="dialog-justificativa" class="dialog">
+            <button id="dialog-justificativa-fechar" class="dialog__fechar" aria-label="Fechar justificativa">X</button>
+            <h2 class="dialog__titulo">Registrar Ausência</h2>
+            <label for="justificativa" class="dialog__label">Justificativa:</label>
+            <textarea id="justificativa" class="dialog__input" placeholder="Descreva sua ausência"></textarea>
+            <label for="upload-arquivo" class="dialog__label">Upload de Arquivo:</label>
+            <input type="file" id="upload-arquivo" class="dialog__input" />
+            <button id="btn-dialog-justificativa" class="btn dialog__btn">Registrar Justificativa</button>
+        </dialog>
+    </div>
 
     <div id="alerta-ponto-registrado" class="alerta hidden">
         <p>Ponto registrado com sucesso!</p>

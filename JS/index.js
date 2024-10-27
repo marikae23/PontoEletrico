@@ -8,25 +8,19 @@ function updateDateTime() {
     horaAtual.textContent = getCurrentTime();
 }
 
-setInterval(updateDateTime, 1000); 
+setInterval(updateDateTime, 1000);
 
 const dialog = document.getElementById("dialog-ponto");
 const overlay = document.querySelector(".overlay");
 const btnFechar = document.getElementById("dialog-fechar");
 
 function abrirDialogo() {
-    dialog.showModal(); 
-    overlay.classList.add("visible"); 
+    dialog.showModal();
+    overlay.classList.add("visible");
 }
-
-btnFechar.addEventListener("click", function() {
-    dialog.close(); 
-    overlay.classList.remove("visible"); 
-});
 
 const btnRegistrarPonto = document.getElementById("btn-registrar-ponto");
 btnRegistrarPonto.addEventListener("click", () => {
-    const dialogPonto = document.getElementById("dialog-ponto");
     const dialogData = document.getElementById("dialog-data");
     const dialogHora = document.getElementById("dialog-hora");
     const dialogUltimoRegistro = document.getElementById("dialog-ultimo-registro");
@@ -41,33 +35,39 @@ btnRegistrarPonto.addEventListener("click", () => {
         dialogUltimoRegistro.textContent = "Nenhum registro encontrado.";
     }
 
-    dialogPonto.showModal();
+    abrirDialogo(); 
+});
+
+btnFechar.addEventListener("click", function() {
+    dialog.close();
+    overlay.classList.remove("visible");
 });
 
 const btnRelatorio = document.getElementById('btn-relatorio');
-
 btnRelatorio.addEventListener('click', function() {
     window.location.href = 'HTML/relatorio.html';
 });
 
-document.getElementById("dialog-fechar").addEventListener("click", () => {
-    const dialogPonto = document.getElementById("dialog-ponto");
-    dialogPonto.close();
-});
-
 const btnDialogRegister = document.getElementById("btn-dialog-register");
 btnDialogRegister.addEventListener("click", async () => {
+    const dataRegistro = document.getElementById("data-registro").value; 
     const registerType = document.getElementById("register-type").value;
-    const register = await createRegisterObject(registerType);
+    const observacao = document.getElementById("observacao").value;
 
+    if (new Date(dataRegistro) > new Date()) {
+        alert("Não é permitido registrar um ponto em uma data futura.");
+        return;
+    }
+
+    const register = await createRegisterObject(registerType, dataRegistro, observacao);
+    
     saveRegisterLocalStorage(register);
     localStorage.setItem("lastRegister", JSON.stringify(register));
 
     showSuccessAlert();
-    document.getElementById("dialog-ponto").close();
+    dialog.close(); 
 });
 
-// Funções auxiliares
 function getCurrentTime() {
     const date = new Date();
     return `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}:${String(date.getSeconds()).padStart(2, '0')}`;
@@ -83,13 +83,14 @@ function getWeekDay() {
     return dayNames[new Date().getDay()];
 }
 
-async function createRegisterObject(type) {
+async function createRegisterObject(type, date, observation) {
     const location = await getUserLocation();
     return {
-        date: getCurrentDate(),
+        date: date,
         time: getCurrentTime(),
         location: `Lat: ${location.latitude}, Long: ${location.longitude}`,
-        type: type
+        type: type,
+        observation: observation 
     };
 }
 

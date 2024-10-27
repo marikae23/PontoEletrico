@@ -62,18 +62,19 @@ header h1 {
 /* Botão */
 .controle-ponto {
     text-align: center; 
-    margin: -130px 0 20px; 
+    margin: -120px 0 20px; 
     display: flex;
     justify-content: center; 
     gap: 25px;
 }
 
 #btn-registrar-ponto, 
-#btn-relatorio {
+#btn-relatorio, 
+#btn-justificativa{
     font-family: "Arvo", sans-serif;
     font-weight: 600;
-    padding: 15px 53px; 
-    font-size: 1.5em; 
+    padding: 15px 33px; 
+    font-size: 1.4em; 
     color: white; 
     background-color: #1d3557; 
     border: none; 
@@ -84,7 +85,8 @@ header h1 {
 }
 
 #btn-registrar-ponto:hover, 
-#btn-relatorio:hover {
+#btn-relatorio:hover,
+#btn-justificativa:hover {
     background-color: #1d3557;
     transform: translateY(-2px); 
 }
@@ -96,7 +98,7 @@ header h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 4, 10); 
+    background-color: rgba(0, 0, 0, 0.5); 
     z-index: 100; 
     display: none; 
 }
@@ -113,7 +115,7 @@ header h1 {
     background-color: white;
     animation: fadeIn 0.5s;
     z-index: 200; 
-    position: relative; 
+    position: fixed; 
 }
 
 #dialog-fechar {
@@ -146,7 +148,6 @@ header h1 {
     font-size: 1.2em;
     color: #2b2d42; 
 }
-
 
 .dialog__label {
     display: block;
@@ -212,12 +213,7 @@ header h1 {
 }
 
 .hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.show {
-    opacity: 1;
+    display: none;
 }
 
 @keyframes fadeIn {
