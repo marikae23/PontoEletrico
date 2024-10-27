@@ -3,7 +3,7 @@ Trabalho 1 - Programação WEB
 Desenvolvimento de uma aplicação WEB utilizando HTML, CSS e JavaScript para o Sistema de Controle de Ponto.
 
 ## Sobre
-É um sistema onde o usuário pode registrar e gerenciar pontos de entrada, saída e intervalos. Com uma interface intuitiva. Permite acompanhar o histórico de registros em uma página dedicada, com detalhes sobre data, horário e localização. É possível editar registros (sendo sinalizados como modificados), fazer registros retroativos e justificar ausências com upload de arquivos como comprovantes.
+É um sistema onde o usuário pode registrar e gerenciar pontos de entrada, saída e intervalos. Permite acompanhar o histórico de registros em uma página dedicada, com detalhes sobre data, horário e localização. É possível editar registros (sendo sinalizados como modificados), fazer registros retroativos e justificar ausências com upload de arquivos como comprovantes.
 
 ## Funcionalidades
 - Visualização de data e hora atual em tempo real.
