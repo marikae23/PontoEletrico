@@ -160,7 +160,7 @@ input[type="date"], input[type="time"], input[type="text"], input[type="file"]:f
     color: #ff6f7d;
 }
 
-/* Responsividade */
+
 @media (max-width: 768px) {
     .container {
         padding: 20px;
@@ -194,4 +194,14 @@ input[type="date"], input[type="time"], input[type="text"], input[type="file"]:f
     }
 }
 
-/* Adicionando transições suaves para interações e tornando o design mais harmonioso e sofisticado */
+.manual-entry, .absence{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+
+
+

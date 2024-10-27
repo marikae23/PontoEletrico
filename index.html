@@ -1,45 +1,70 @@
+<!--TRABALHO feito por : Matheus Musashi Tanaka , Carolina Dias Maikuma e Maria Eduarda Eguchi-->
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Ponto Eletrônico</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Ponto Eletrônico</title> <!--nome da pagina-->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
     <div class="container">
-        <h1><span>Sistema</span> de Ponto Eletrônico</h1>
-        <div class="clock">
-            <span id="currentDateTime"></span>
+      <h1><span>Sistema</span> de Ponto Eletrônico</h1> <!--titulo-->
+      <div class="clock"><!--style do tempo-->
+        <span id="currentDateTime"></span><!--span aonde o datatime sera inserido (relogio)-->
+      </div>
+      <div class="buttons"><!--butoes de registro padrao-->
+        <button onclick="registrarPonto('Entrada Expediente')">
+          Entrada Expediente
+        </button>
+        <button onclick="registrarPonto('Saida Expediente')">
+          Saída Expediente
+        </button>
+        <button onclick="registrarPonto('Entrada Intervalo')">
+          Entrada Intervalo
+        </button>
+        <button onclick="registrarPonto('Saida Intervalo')">
+          Saída Intervalo
+        </button>
+      </div>
+      <div class="manual-entry"><!--local de registro manual-->
+        <h2>Registro Manual</h2>
+        <div class="linhainput">
+          <!-- essa div faz com que os inputs estejam em ROW e nao coluna -->
+          <label for="manualDate">Data: </label>
+          <input type="date" id="manualDate" />
+          <label for="manualTime">Hora: </label>
+          <input type="time" id="manualTime" />
+          <label for="observation">Observação: </label>
+          <input
+            type="text"
+            id="observation"
+            placeholder="Observação opcional"
+          />
         </div>
-        <div class="buttons">
-            <button onclick="registrarPonto('entradaExpediente')">Entrada Expediente</button>
-            <button onclick="registrarPonto('saidaExpediente')">Saída Expediente</button>
-            <button onclick="registrarPonto('entradaIntervalo')">Entrada Intervalo</button>
-            <button onclick="registrarPonto('saidaIntervalo')">Saída Intervalo</button>
+        <button onclick="registrarPontoManual()">Registrar Manualmente</button> <!--botao que registra manualmente o ponto-->
+      </div>
+      <div class="absence"><!--local de motivo de ausencia-->
+        <h2>Justificativa de Ausência</h2>
+        <div class="linhainput">
+          <!-- essa div faz com que os inputs estejam em ROW e nao coluna -->
+          <label for="absenceReason">Motivo: </label>
+          <input
+            type="text"
+            id="absenceReason"
+            placeholder="Motivo da ausência"
+          />
+          <label for="absenceFile">Arquivo: </label>
+          <input type="file" id="absenceFile" />
         </div>
-        <div class="manual-entry">
-            <h2>Registro Manual</h2>
-            <label for="manualDate">Data: </label>
-            <input type="date" id="manualDate">
-            <label for="manualTime">Hora: </label>
-            <input type="time" id="manualTime">
-            <label for="observation">Observação: </label>
-            <input type="text" id="observation" placeholder="Observação opcional">
-            <button onclick="registrarPontoManual()">Registrar Manualmente</button>
-        </div>
-        <div class="absence">
-            <h2>Justificativa de Ausência</h2>
-            <label for="absenceReason">Motivo: </label>
-            <input type="text" id="absenceReason" placeholder="Motivo da ausência">
-            <label for="absenceFile">Arquivo: </label>
-            <input type="file" id="absenceFile">
-            <button onclick="registrarAusencia()">Registrar Ausência</button>
-        </div>
-        <div class="report-link">
-            <a href="relatorio.html">Ver Relatório de Pontos</a>
-        </div>
+        <button onclick="registrarAusencia()">Registrar Ausência</button><!--botao de registrar ausencia-->
+      </div>
+      <div class="report-link">
+        <a href="relatorio.html">Ver Relatório de Pontos</a><!--router link para a pagina de relatorios -> (relatorio.html)-->
+      </div>
     </div>
-    <script src="js/index.js"></script>
-</body>
+    <script src="js/index.js"></script><!--pull do nosso script index-->
+  </body>
 </html>
