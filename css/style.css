@@ -1,51 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f8ff;
+    font-family: "Poppins", sans-serif;
+    background-color: #f8fcff;
     margin: 0;
+    overflow: hidden;
     padding: 0;
     line-height: 1.6;
-}
-
-.container {
-    max-width: 90%;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-}
-
-.container:hover {
-    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
-}
-
-h1, h2 {
-    text-align: center;
     color: #333;
 }
 
-.clock {
+.container {
+    max-width: 85%;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
+.container:hover {
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
     text-align: center;
-    font-size: 2rem;
-    margin: 20px 0;
+    color: #2a2a2a;
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+h1 span {
+    font-weight: bold;
+    color: #d62839;
+}
+
+h2 {
+    text-align: center;
+    color: #444;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.clock {
+    font-weight: 700;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 25px 0;
     color: #555;
 }
 
-.buttons, .manual-entry, .absence {
+#reportFilters {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
-    width: 100%;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#reportFilters label {
+    font-weight: bold;
+    color: #555;
+}
+
+#reportFilters select {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+
+#reportFilters select:focus {
+    border-color: #d62839;
+}
+
+#reportContent {
+    margin-top: 25px;
+}
+
+.date-section {
+    margin-bottom: 25px;
+    padding: 20px;
+    background-color: #f3f7fa;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+}
+
+.point-entry {
+    margin: 15px 0;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.point-entry:hover {
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.observation-entry {
+    border-left: 6px solid #d62839;
+    padding-left: 10px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
 }
 
 button {
-    padding: 12px 20px;
-    background-color: #bc4749;
-    color: white;
+    padding: 12px 25px;
+    background-color: #d62839;
+    color: #ffffff;
     border: none;
-    border-radius: 25px;
+    border-radius: 20px;
     cursor: pointer;
     font-size: 1.1rem;
     margin-top: 10px;
@@ -53,73 +126,72 @@ button {
 }
 
 button:hover {
-    background-color: #FF606C;
+    background-color: #ff6f7d;
     transform: scale(1.05);
 }
 
 input[type="date"], input[type="time"], input[type="text"], input[type="file"] {
-    padding: 10px;
-    margin: 10px;
-    width: 100%;
+    padding: 12px;
+    margin: 15px;
     max-width: 300px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 8px;
     box-sizing: border-box;
     transition: border-color 0.3s ease;
 }
 
-input[type="date"], input[type="time"]:focus, input[type="text"]:focus, input[type="file"]:focus {
-    border-color: #bc4749;
+input[type="date"], input[type="time"], input[type="text"], input[type="file"]:focus {
+    border-color: #d62839;
 }
 
 .report-link {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .report-link a {
     text-decoration: none;
-    color: #bc4749;
+    color: #d62839;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 .report-link a:hover {
-    color: #FF606C;
+    color: #ff6f7d;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        padding: 20px;
     }
 
-    .buttons, .manual-entry, .absence {
-        width: 100%;
-        padding: 10px;
+    #reportFilters label, #reportFilters select {
+        margin-bottom: 10px;
     }
 
-    button {
-        width: 90%;
-        max-width: 250px;
-    }
-
-    input[type="date"], input[type="time"], input[type="text"], input[type="file"] {
-        width: 100%;
-        max-width: 100%;
+    .buttons {
+        flex-direction: column;
+        align-items: center;
     }
 }
 
 @media (max-width: 480px) {
-    h1, h2 {
-        font-size: 1.5rem;
+    h1 {
+        font-size: 2.4rem;
+    }
+    
+    h2 {
+        font-size: 1.4rem;
     }
 
     .clock {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 
     button {
         font-size: 1rem;
     }
 }
+
+/* Adicionando transições suaves para interações e tornando o design mais harmonioso e sofisticado */
