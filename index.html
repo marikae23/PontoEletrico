@@ -1,70 +1,68 @@
-<!--TRABALHO feito por : Matheus Musashi Tanaka , Carolina Dias Maikuma e Maria Eduarda Eguchi-->
-
+<!-- TRABALHO feito por: Matheus Musashi Tanaka, Carolina Dias Maikuma e Maria Eduarda Eguchi -->
 
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sistema de Ponto Eletrônico</title> <!--nome da pagina-->
-    <link rel="stylesheet" href="./css/style.css" />
+    <title>Sistema de Ponto Eletrônico</title> 
+    <link rel="stylesheet" href="./css/style.css" /> 
   </head>
   <body>
     <div class="container">
-      <h1><span>Sistema</span> de Ponto Eletrônico</h1> <!--titulo-->
-      <div class="clock"><!--style do tempo-->
-        <span id="currentDateTime"></span><!--span aonde o datatime sera inserido (relogio)-->
+      <!-- Título principal da página -->
+      <h1><span>Sistema</span> de Ponto Eletrônico</h1> 
+
+      <!-- Relógio exibindo data e hora atual -->
+      <div class="clock">
+        <span id="currentDateTime"></span>
       </div>
-      <div class="buttons"><!--botoes de registro padrao-->
-        <button onclick="registrarPonto('Entrada Expediente')">
-          Entrada Expediente
-        </button>
-        <button onclick="registrarPonto('Saida Expediente')">
-          Saída Expediente
-        </button>
-        <button onclick="registrarPonto('Entrada Intervalo')">
-          Entrada Intervalo
-        </button>
-        <button onclick="registrarPonto('Saida Intervalo')">
-          Saída Intervalo
-        </button>
+
+      <!-- Botões de registro padrão (entrada/saída do expediente e intervalo) -->
+      <div class="buttons">
+        <button onclick="registrarPonto('Entrada Expediente')">Entrada Expediente</button>
+        <button onclick="registrarPonto('Saída Expediente')">Saída Expediente</button>
+        <button onclick="registrarPonto('Entrada Intervalo')">Entrada Intervalo</button>
+        <button onclick="registrarPonto('Saída Intervalo')">Saída Intervalo</button>
       </div>
-      <div class="manual-entry"><!--local de registro manual-->
+
+      <!-- Seção de registro manual de ponto -->
+      <div class="manual-entry">
         <h2>Registro Manual</h2>
         <div class="linhainput">
-          <!-- essa div faz com que os inputs estejam em ROW e nao coluna -->
+
+          <!-- Inputs para inserir data, hora e observação de forma manual -->
           <label for="manualDate">Data: </label>
           <input type="date" id="manualDate" />
           <label for="manualTime">Hora: </label>
           <input type="time" id="manualTime" />
           <label for="observation">Observação: </label>
-          <input
-            type="text"
-            id="observation"
-            placeholder="Observação opcional"
-          />
+          <input type="text" id="observation" placeholder="Observação opcional" />
         </div>
-        <button onclick="registrarPontoManual()">Registrar Manualmente</button> <!--botao que registra manualmente o ponto-->
+        <button onclick="registrarPontoManual()">Registrar Manualmente</button> 
       </div>
-      <div class="absence"><!--local de motivo de ausencia-->
+
+      <!-- Seção para justificar ausência -->
+      <div class="absence">
         <h2>Justificativa de Ausência</h2>
         <div class="linhainput">
-          <!-- essa div faz com que os inputs estejam em ROW e nao coluna -->
+
+          <!-- Inputs para inserir motivo da ausência e carregar um arquivo -->
           <label for="absenceReason">Motivo: </label>
-          <input
-            type="text"
-            id="absenceReason"
-            placeholder="Motivo da ausência"
-          />
+          <input type="text" id="absenceReason" placeholder="Motivo da ausência" />
           <label for="absenceFile">Arquivo: </label>
           <input type="file" id="absenceFile" />
         </div>
-        <button onclick="registrarAusencia()">Registrar Ausência</button><!--botao de registrar ausencia-->
+        <button onclick="registrarAusencia()">Registrar Ausência</button> 
       </div>
+
+      <!-- Link para ver o relatório de pontos -->
       <div class="report-link">
-        <a href="relatorio.html">Ver Relatório de Pontos</a><!--router link para a pagina de relatorios -> (relatorio.html)-->
+        <a href="relatorio.html">Ver Relatório de Pontos</a>
       </div>
     </div>
-    <script src="js/index.js"></script><!--pull do nosso script index-->
+
+    <!-- Script JavaScript para funcionalidades do sistema -->
+    <script src="js/index.js"></script>
   </body>
 </html>

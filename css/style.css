@@ -1,27 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 
+/* Estilo Global */
 body {
     font-family: "Poppins", sans-serif;
-    background-color: #f8fcff;
+    background-color: #edede9;
     margin: 0;
     padding: 0;
     line-height: 1.6;
     color: #333;
 }
 
+/* Container Principal */
 .container {
     max-width: 85%;
     margin: 30px auto;
     padding: 25px;
     background-color: #ffffff;
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1); 
 }
 
+/* Efeito hover para o container */
 .container:hover {
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
 }
 
+/* Título principal */
 h1 {
     text-align: center;
     color: #2a2a2a;
@@ -29,11 +32,13 @@ h1 {
     margin-bottom: 15px;
 }
 
+/* Destaque do título */
 h1 span {
     font-weight: bold;
-    color: #d62839;
+    color: #d62839; 
 }
 
+/* Subtítulo */
 h2 {
     text-align: center;
     color: #444;
@@ -41,14 +46,22 @@ h2 {
     margin-bottom: 20px;
 }
 
+/* Relógio */
 .clock {
+    font-family: "Oswald", sans-serif; 
     font-weight: 700;
     text-align: center;
-    font-size: 1.5rem;
-    margin: 25px 0;
-    color: #555;
+    font-size: 2rem;
+    margin: 25px auto; 
+    padding: 15px 20px;
+    color: #edede9; 
+    background-color: #003049; 
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
 }
 
+/* Filtros de Relatório */
 #reportFilters {
     display: flex;
     justify-content: center;
@@ -58,26 +71,30 @@ h2 {
     margin-bottom: 25px;
 }
 
+/* Estilo dos labels de filtro */
 #reportFilters label {
     font-weight: bold;
     color: #555;
 }
 
+/* Estilo dos selects de filtro */
 #reportFilters select {
     padding: 8px;
     border-radius: 8px;
     border: 1px solid #ccc;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease; 
 }
 
 #reportFilters select:focus {
-    border-color: #d62839;
+    border-color: #d62839; 
 }
 
+/* Conteúdo do Relatório */
 #reportContent {
     margin-top: 25px;
 }
 
+/* Seção de data */
 .date-section {
     margin-bottom: 25px;
     padding: 20px;
@@ -86,24 +103,27 @@ h2 {
     border-radius: 12px;
 }
 
+/* Entrada de ponto */
 .point-entry {
     margin: 15px 0;
     padding: 15px;
     background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.3s ease;
+    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.05); 
+    transition: box-shadow 0.3s ease; 
 }
 
 .point-entry:hover {
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Observação de entrada */
 .observation-entry {
-    border-left: 6px solid #d62839;
+    border-left: 6px solid #d62839; 
     padding-left: 10px;
 }
 
+/* Botões em geral */
 .buttons {
     display: flex;
     justify-content: center;
@@ -112,23 +132,26 @@ h2 {
     margin-bottom: 25px;
 }
 
+/* Estilo dos botões */
 button {
     padding: 12px 25px;
     background-color: #d62839;
     color: #ffffff;
     border: none;
-    border-radius: 20px;
+    border-radius: 20px; 
     cursor: pointer;
     font-size: 1.1rem;
     margin-top: 10px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease; 
 }
 
+/* Efeito ao passar o mouse sobre os botões */
 button:hover {
     background-color: #ff6f7d;
-    transform: scale(1.05);
+    transform: scale(1.05); 
 }
 
+/* Estilo dos inputs */
 input[type="date"], input[type="time"], input[type="text"], input[type="file"] {
     padding: 12px;
     margin: 15px;
@@ -136,13 +159,14 @@ input[type="date"], input[type="time"], input[type="text"], input[type="file"] {
     border: 1px solid #ccc;
     border-radius: 8px;
     box-sizing: border-box;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease; 
 }
 
 input[type="date"], input[type="time"], input[type="text"], input[type="file"]:focus {
-    border-color: #d62839;
+    border-color: #d62839; 
 }
 
+/* Link para o relatório */
 .report-link {
     text-align: center;
     margin-top: 30px;
@@ -152,14 +176,14 @@ input[type="date"], input[type="time"], input[type="text"], input[type="file"]:f
     text-decoration: none;
     color: #d62839;
     font-weight: bold;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease; 
 }
 
 .report-link a:hover {
     color: #ff6f7d;
 }
 
-
+/* Responsividade para tablets */
 @media (max-width: 768px) {
     .container {
         padding: 20px;
@@ -175,6 +199,7 @@ input[type="date"], input[type="time"], input[type="text"], input[type="file"]:f
     }
 }
 
+/* Responsividade para celulares */
 @media (max-width: 480px) {
     h1 {
         font-size: 2.4rem;
@@ -193,14 +218,11 @@ input[type="date"], input[type="time"], input[type="text"], input[type="file"]:f
     }
 }
 
-.manual-entry, .absence{
+/* Estilo para registro manual e justificativas */
+.manual-entry, .absence {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-bottom: 25px;
 }
-
-
-
-
