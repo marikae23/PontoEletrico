@@ -9,6 +9,18 @@ function atualizarDataHora() { //funcao de atualizar hora
     elementoDataHora.innerText = agora.toLocaleString("pt-BR"); // adaptação da hora para formato BR
 }
 
+document.getElementById('registroBtn').addEventListener('click', function() {
+    document.getElementById('registroDialog').showModal();
+  });
+
+  document.getElementById('justificativaBtn').addEventListener('click', function() {
+    document.getElementById('justificativaDialog').showModal();
+  });
+
+  // Função para fechar o diálogo
+  function fecharDialog(dialogId) {
+    document.getElementById(dialogId).close();
+  }
 
 function registrarPonto(tipo) { //funcao de registrar ponto
     const agora = new Date(); //recolhe hora atual

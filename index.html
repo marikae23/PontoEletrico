@@ -1,5 +1,3 @@
-<!-- TRABALHO feito por: Matheus Musashi Tanaka, Carolina Dias Maikuma e Maria Eduarda Eguchi -->
-
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
@@ -7,11 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sistema de Ponto Eletrônico</title> 
     <link rel="stylesheet" href="./css/style.css" /> 
+    <style>
+      dialog {
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        max-width: 500px;
+        width: 90%;
+      }
+
+      dialog::backdrop {
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      .dialog-buttons {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .linhainput {
+        margin-bottom: 15px;
+      }
+
+      button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #f0f0f0;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
       <!-- Título principal da página -->
-      <h1><span>Sistema</span> de Ponto Eletrônico</h1> 
+      <h1>Sistema de Ponto Eletrônico</h1> 
 
       <!-- Relógio exibindo data e hora atual -->
       <div class="clock">
@@ -19,6 +52,7 @@
       </div>
 
       <!-- Botões de registro padrão (entrada/saída do expediente e intervalo) -->
+       <h2>Registro Automático</h2>
       <div class="buttons">
         <button onclick="registrarPonto('Entrada Expediente')">Entrada Expediente</button>
         <button onclick="registrarPonto('Saída Expediente')">Saída Expediente</button>
@@ -26,12 +60,17 @@
         <button onclick="registrarPonto('Saída Intervalo')">Saída Intervalo</button>
       </div>
 
-      <!-- Seção de registro manual de ponto -->
-      <div class="manual-entry">
+      <!-- Botões adicionais -->
+       <h2>Outros</h2>
+      <div class="additional-buttons">
+        <button id="registroBtn">Registro Manual</button>
+        <button id="justificativaBtn">Justificativa</button>
+      </div>
+
+      <!-- Diálogo de Registro -->
+      <dialog id="registroDialog">
         <h2>Registro Manual</h2>
         <div class="linhainput">
-
-          <!-- Inputs para inserir data, hora e observação de forma manual -->
           <label for="manualDate">Data: </label>
           <input type="date" id="manualDate" />
           <label for="manualTime">Hora: </label>
@@ -39,22 +78,26 @@
           <label for="observation">Observação: </label>
           <input type="text" id="observation" placeholder="Observação opcional" />
         </div>
-        <button onclick="registrarPontoManual()">Registrar Manualmente</button> 
-      </div>
+        <div class="dialog-buttons">
+          <button onclick="registrarPontoManual()">Registrar</button>
+          <button onclick="fecharDialog('registroDialog')">X</button>
+        </div>
+      </dialog>
 
-      <!-- Seção para justificar ausência -->
-      <div class="absence">
+      <!-- Diálogo de Justificativa -->
+      <dialog id="justificativaDialog">
         <h2>Justificativa de Ausência</h2>
         <div class="linhainput">
-
-          <!-- Inputs para inserir motivo da ausência e carregar um arquivo -->
           <label for="absenceReason">Motivo: </label>
           <input type="text" id="absenceReason" placeholder="Motivo da ausência" />
           <label for="absenceFile">Arquivo: </label>
           <input type="file" id="absenceFile" />
         </div>
-        <button onclick="registrarAusencia()">Registrar Ausência</button> 
-      </div>
+        <div class="dialog-buttons">
+          <button onclick="registrarAusencia()">Registrar</button>
+          <button onclick="fecharDialog('justificativaDialog')">X</button>
+        </div>
+      </dialog>
 
       <!-- Link para ver o relatório de pontos -->
       <div class="report-link">
