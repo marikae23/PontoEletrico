@@ -84,14 +84,12 @@ button {
   padding: 10px 20px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
   width: 200px;
   text-align: center;
 }
 
 button:hover {
   background-color: #c1121f;
-  transform: scale(1.05);
 }
 
 .additional-buttons button {
