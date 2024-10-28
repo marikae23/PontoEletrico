@@ -59,7 +59,7 @@ h2 {
 }
 
 #reportFilters select:focus {
-    border-color: #d62839;
+    border-color: #780000;
 }
 
 #reportContent {
@@ -92,8 +92,6 @@ h2 {
     padding-left: 10px;
 }
 
-
-
 .buttons {
     display: flex;
     justify-content: center;
@@ -104,10 +102,10 @@ h2 {
 
 button {
     padding: 12px 25px;
-    background-color: #d62839;
+    background-color: #780000;
     color: #ffffff;
     border: none;
-    border-radius: 20px;
+    border-radius: 15px;
     cursor: pointer;
     font-size: 1.1rem;
     margin-top: 10px;
@@ -115,7 +113,7 @@ button {
 }
 
 button:hover {
-    background-color: #ff6f7d;
+    background-color: #c1121f;
     transform: scale(1.05);
 }
 
@@ -130,7 +128,7 @@ input[type="date"], input[type="time"], input[type="text"], input[type="file"] {
 }
 
 input[type="date"], input[type="time"], input[type="text"], input[type="file"]:focus {
-    border-color: #d62839;
+    border-color: #780000;
 }
 
 .report-link {
@@ -140,7 +138,7 @@ input[type="date"], input[type="time"], input[type="text"], input[type="file"]:f
 
 .report-link a {
     text-decoration: none;
-    color: #d62839;
+    color: #780000;
     font-weight: bold;
     transition: color 0.3s ease;
 }
